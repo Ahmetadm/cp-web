@@ -1,0 +1,141 @@
+{
+  "nav": {
+    "home": "Home",
+    "complaints": "Complaints",
+    "trend": "Trend",
+    "submitComplaint": "Submit Complaint",
+    "login": "Login",
+    "register": "Register"
+  },
+  "hero": {
+    "title": "Share Your Experience, Help Others Make Better Choices",
+    "searchPlaceholder": "Search companies, brands...",
+    "searchButton": "Search"
+  },
+  "sections": {
+    "trending": {
+      "title": "Trending Complaints",
+      "viewMore": "See more trending"
+    },
+    "stats": {
+      "title": "ComplaintHub in Numbers",
+      "registeredUsers": "Registered Users",
+      "registeredBrands": "Registered Brands",
+      "resolvedComplaints": "Resolved Complaints",
+      "visitorsLast30Days": "Visitors Last 30 Days"
+    },
+    "trendingBrands": {
+      "title": "Trend ",
+      "description": "Discover the most trending brands and companies based on visitor activity and complaint volume.",
+      "brand": "Brand",
+      "trend": "Trend",
+      "visitorIncrease": "Visitor Increase"
+    },
+    "recentComplaints": {
+      "title": "Recent Complaints",
+      "subtitle": "Latest complaints from our users",
+      "viewAll": "View all"
+    },
+    "featuredCompanies": {
+      "title": "Featured Companies",
+      "subtitle": "Companies actively responding to complaints",
+      "viewAll": "View all"
+    },
+    "statistics": {
+      "title": "Success Stories",
+      "subtitle": "Our results speak for themselves",
+      "totalComplaints": "Total Complaints",
+      "totalComplaintsDesc": "Complaints submitted",
+      "resolvedComplaints": "Resolved Complaints",
+      "resolvedComplaintsDesc": "71% resolution rate",
+      "registeredCompanies": "Registered Companies",
+      "registeredCompaniesDesc": "Active companies",
+      "satisfiedUsers": "Satisfied Users",
+      "satisfiedUsersDesc": "Positive experiences"
+    },
+    "categories": {
+      "title": "Categories",
+      "subtitle": "Browse complaints by category",
+      "viewAll": "View all"
+    },
+    "cta": {
+      "title": "Have a problem with a company?",
+      "subtitle": "Share your experience and get a solution. Your complaint can help thousands of others.",
+      "button": "Submit a complaint now",
+      "free": "Free",
+      "anonymous": "Anonymous",
+      "fastResponse": "Fast Response"
+    },
+    "topCompanies": {
+      "title": "Top Companies",
+      "lastYear": "Last Year",
+      "description": "This ranking is based on user satisfaction, response rate, and complaint resolution time.",
+      "complaints": "complaints",
+      "response": "response",
+      "pro": "PRO",
+      "viewAllRankings": "View all rankings",
+      "resolvedComplaints": "Resolved complaints"
+    }
+  },
+  "complaint": {
+    "status": {
+      "pending": "Pending",
+      "in_progress": "In Progress",
+      "resolved": "Resolved",
+      "rejected": "Rejected"
+    },
+    "views": "views",
+    "comments": "comments",
+    "user": "User"
+  },
+  "company": {
+    "complaints": "complaints",
+    "responseRate": "response rate",
+    "rating": "rating",
+    "resolvedComplaints": "Resolved complaints"
+  },
+  "footer": {
+    "description": "Consumer complaint platform. Our mission is to improve service through transparency.",
+    "quickLinks": "Quick Links",
+    "support": "Support",
+    "legal": "Legal Information",
+    "about": "About Us",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "copyright": "© 2024 ComplaintHub. All rights reserved.",
+    "socialFollow": "Follow Us"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Try again",
+    "more": "More",
+    "less": "Less"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "complaintExamples": {
+    "packageDelivery": "Package Delivery",
+    "customerService": "Customer Service",
+    "personalDataSpam": "Personal Data Used Without Permission & Added to Spam Group",
+    "personalDataDescription": "My personal information was used without my consent and I started receiving spam messages...",
+    "unauthorizedCalls": "Unauthorized Calls and Privacy Concerns with My Data",
+    "unauthorizedCallsDescription": "I've been receiving unauthorized calls after sharing my information with this company..."
+  },
+  "categoriesList": {
+    "telekomunikacii": "Telecommunications",
+    "banki-finansii": "Banking & Finance",
+    "energetika": "Energy",
+    "e-trgovija": "E-commerce",
+    "transport": "Transport",
+    "osiguruvanje": "Insurance",
+    "zdravstvo": "Health",
+    "turizam": "Tourism"
+  }
+}

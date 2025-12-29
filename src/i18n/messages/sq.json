@@ -1,0 +1,141 @@
+{
+  "nav": {
+    "home": "Kryefaqja",
+    "complaints": "Ankesat",
+    "trend": "Tendencat",
+    "submitComplaint": "Paraqit Ankesën",
+    "login": "Hyr",
+    "register": "Regjistrohu"
+  },
+  "hero": {
+    "title": "Ndani Përvojën Tuaj, Ndihmoni të Tjerët të Bëjnë Zgjedhje më të Mira",
+    "searchPlaceholder": "Kërko kompani, marka...",
+    "searchButton": "Kërko"
+  },
+  "sections": {
+    "trending": {
+      "title": "Ankesat në Tendencë",
+      "viewMore": "Shiko më shumë në tendencë"
+    },
+    "stats": {
+      "title": "ComplaintHub në Numra",
+      "registeredUsers": "Përdorues të Regjistruar",
+      "registeredBrands": "Marka të Regjistruara",
+      "resolvedComplaints": "Ankesa të Zgjidhra",
+      "visitorsLast30Days": "Vizitorë në 30 Ditët e Fundit"
+    },
+    "trendingBrands": {
+      "title": "Tendenca ",
+      "description": "Zbuloni markat dhe kompanitë më në tendencë bazuar në aktivitetin e vizitorëve dhe vëllimin e ankesave.",
+      "brand": "Marka",
+      "trend": "Tendenca",
+      "visitorIncrease": "Rritja e Vizitorëve"
+    },
+    "recentComplaints": {
+      "title": "Ankesat e Fundit",
+      "subtitle": "Ankesat më të reja nga përdoruesit tanë",
+      "viewAll": "Shiko të gjitha"
+    },
+    "featuredCompanies": {
+      "title": "Kompanitë e Veçanta",
+      "subtitle": "Kompanitë që përgjigjen aktivisht ndaj ankesave",
+      "viewAll": "Shiko të gjitha"
+    },
+    "statistics": {
+      "title": "Histori Suksesi",
+      "subtitle": "Rezultatet tona flasin vetë",
+      "totalComplaints": "Ankesat Totale",
+      "totalComplaintsDesc": "Ankesa të dorëzuara",
+      "resolvedComplaints": "Ankesa të Zgjidhra",
+      "resolvedComplaintsDesc": "71% shkalla e zgjidhjes",
+      "registeredCompanies": "Kompani të Regjistruara",
+      "registeredCompaniesDesc": "Kompani aktive",
+      "satisfiedUsers": "Përdorues të Kënaqur",
+      "satisfiedUsersDesc": "Përvoja pozitive"
+    },
+    "categories": {
+      "title": "Kategoritë",
+      "subtitle": "Shfleto ankesat sipas kategorisë",
+      "viewAll": "Shiko të gjitha"
+    },
+    "cta": {
+      "title": "Keni problem me një kompani?",
+      "subtitle": "Ndani përvojën tuaj dhe merrni zgjidhje. Ankesa juaj mund të ndihmojë mijëra të tjerë.",
+      "button": "Paraqisni ankesë tani",
+      "free": "Falas",
+      "anonymous": "Anonim",
+      "fastResponse": "Përgjigje e Shpejtë"
+    },
+    "topCompanies": {
+      "title": "Kompanitë më të Suksesshme",
+      "lastYear": "Viti i Kaluar",
+      "description": "Kjo renditje bazohet në kënaqësinë e përdoruesve, shkallën e përgjigjes dhe kohën e zgjidhjes së ankesave.",
+      "complaints": "ankesa",
+      "response": "përgjigje",
+      "pro": "PRO",
+      "viewAllRankings": "Shiko të gjitha renditjet",
+      "resolvedComplaints": "Ankesa të zgjidhra"
+    }
+  },
+  "complaint": {
+    "status": {
+      "pending": "Në pritje",
+      "in_progress": "Në proces",
+      "resolved": "E zgjidhur",
+      "rejected": "E refuzuar"
+    },
+    "views": "shikime",
+    "comments": "komente",
+    "user": "Përdorues"
+  },
+  "company": {
+    "complaints": "ankesa",
+    "responseRate": "shkalla e përgjigjes",
+    "rating": "vlerësim",
+    "resolvedComplaints": "Ankesa të zgjidhra"
+  },
+  "footer": {
+    "description": "Platforma e ankesave të konsumatorëve. Misioni ynë është përmirësimi i shërbimit përmes transparencës.",
+    "quickLinks": "Lidhjet e Shpejta",
+    "support": "Mbështetje",
+    "legal": "Informacion Ligjor",
+    "about": "Rreth Nesh",
+    "contact": "Kontakt",
+    "faq": "Pyetje të Shpeshta",
+    "terms": "Kushtet e Shërbimit",
+    "privacy": "Politika e Privatësisë",
+    "cookies": "Politika e Cookie-ve",
+    "copyright": "© 2024 ComplaintHub. Të gjitha të drejtat e rezervuara.",
+    "socialFollow": "Na Ndiqni"
+  },
+  "common": {
+    "loading": "Duke u ngarkuar...",
+    "error": "Ndodhi një gabim",
+    "retry": "Provo përsëri",
+    "more": "Më shumë",
+    "less": "Më pak"
+  },
+  "theme": {
+    "light": "E ndriçme",
+    "dark": "E errët",
+    "system": "Sistemi"
+  },
+  "complaintExamples": {
+    "packageDelivery": "Dorëzimi i Paketave",
+    "customerService": "Shërbimi i Klientit",
+    "personalDataSpam": "Të Dhënat Personale të Përdorura Pa Leje dhe të Shtuara në Grup Spam",
+    "personalDataDescription": "Informacioni im personal u përdor pa pëlqimin tim dhe fillova të marr mesazhe spam...",
+    "unauthorizedCalls": "Thirrje të Paautorizuara dhe Shqetësime Privatësie me të Dhënat e Mia",
+    "unauthorizedCallsDescription": "Kam marrë thirrje të paautorizuara pasi ndava informacionin tim me këtë kompani..."
+  },
+  "categoriesList": {
+    "telekomunikacii": "Telekomunikacioni",
+    "banki-finansii": "Banka dhe Financa",
+    "energetika": "Energjia",
+    "e-trgovija": "E-tregtia",
+    "transport": "Transporti",
+    "osiguruvanje": "Sigurimet",
+    "zdravstvo": "Shëndetësia",
+    "turizam": "Turizmi"
+  }
+}
