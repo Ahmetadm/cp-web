@@ -1,5 +1,6 @@
 import React from 'react';
 import { Statistic } from '@/types';
+import { Icon } from '@/components/ui/Icon';
 
 interface StatCardProps {
   stat: Statistic;
@@ -8,7 +9,7 @@ interface StatCardProps {
 export function StatCard({ stat }: StatCardProps) {
   return (
     <div className="flex flex-col items-center text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-      <span className="text-4xl mb-3">{stat.icon}</span>
+      <Icon name={stat.icon} className="w-10 h-10 mb-3 text-white" />
       <span className="text-3xl md:text-4xl font-bold text-white mb-2">
         {stat.value}
       </span>

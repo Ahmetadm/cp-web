@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { LocaleProvider } from "@/i18n";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { i18n, type Locale } from "@/i18n-config";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -21,22 +23,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function RootLayout(props: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const params = await props.params;
+  const { lang } = params;
+  
+  const messages = await getDictionary(lang);
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
-        <LocaleProvider>
+        <LocaleProvider locale={lang} messages={messages}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            {props.children}
           </ThemeProvider>
         </LocaleProvider>
       </body>

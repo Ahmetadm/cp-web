@@ -35,9 +35,9 @@ export function SearchBar({
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div className="relative flex items-center bg-white rounded-2xl shadow-xl shadow-gray-200/50 overflow-hidden border border-gray-100">
+      <div className="relative flex items-center bg-background rounded-2xl shadow-xl shadow-foreground/10 overflow-hidden border border-foreground/10">
         {/* Search Icon */}
-        <div className="absolute left-5 text-gray-400">
+        <div className="absolute left-5 text-foreground/50">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={`${size === 'lg' ? 'w-6 h-6' : 'w-5 h-5'}`}
@@ -65,7 +65,7 @@ export function SearchBar({
             ${sizeStyles[size]}
             ${size === 'lg' ? 'pl-14' : 'pl-12'}
             ${showButton ? 'pr-4' : 'pr-6'}
-            text-gray-900 placeholder-gray-400
+            text-foreground placeholder-foreground/50
             focus:outline-none
           `}
         />

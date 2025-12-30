@@ -16,15 +16,15 @@ export function CompanyCard({ company, variant = 'default' }: CompanyCardProps) 
   if (variant === 'compact') {
     return (
       <Link href={`/companies/${company.slug}`}>
-        <div className="group flex items-center gap-3 p-3 bg-white rounded-xl border border-gray-100 hover:border-indigo-200 hover:shadow-lg transition-all duration-300">
+        <div className="group flex items-center gap-3 p-3 bg-background rounded-xl border border-foreground/10 hover:border-indigo-200 hover:shadow-lg transition-all duration-300">
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-lg font-bold text-indigo-600">
             {company.name.charAt(0)}
           </div>
           <div className="flex-1 min-w-0">
-            <h4 className="font-medium text-gray-900 truncate group-hover:text-indigo-600 transition-colors">
+            <h4 className="font-medium text-foreground truncate group-hover:text-indigo-600 transition-colors">
               {company.name}
             </h4>
-            <p className="text-xs text-gray-500">{company.totalComplaints} {t.company.complaints}</p>
+            <p className="text-xs text-foreground/60">{company.totalComplaints} {t.company.complaints}</p>
           </div>
           <div className={`px-2 py-1 rounded-lg ${ratingBg} ${ratingColor} text-sm font-semibold`}>
             {company.rating.toFixed(1)}
@@ -36,7 +36,7 @@ export function CompanyCard({ company, variant = 'default' }: CompanyCardProps) 
 
   return (
     <Link href={`/companies/${company.slug}`}>
-      <div className="group bg-white rounded-2xl border border-gray-100 p-6 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50 transition-all duration-300">
+      <div className="group bg-background rounded-2xl border border-foreground/10 p-6 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50 transition-all duration-300">
         {/* Header */}
         <div className="flex items-start justify-between">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-2xl font-bold text-indigo-600 group-hover:scale-110 transition-transform duration-300">
@@ -51,29 +51,29 @@ export function CompanyCard({ company, variant = 'default' }: CompanyCardProps) 
         </div>
 
         {/* Company Name */}
-        <h3 className="mt-4 text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+        <h3 className="mt-4 text-lg font-semibold text-foreground group-hover:text-indigo-600 transition-colors">
           {company.name}
         </h3>
 
         {/* Stats */}
         <div className="mt-4 grid grid-cols-2 gap-3">
-          <div className="bg-gray-50 rounded-xl p-3 text-center">
-            <p className="text-xl font-bold text-gray-900">{company.totalComplaints}</p>
-            <p className="text-xs text-gray-500">{t.company.complaints}</p>
+          <div className="bg-foreground/5 rounded-xl p-3 text-center">
+            <p className="text-xl font-bold text-foreground">{company.totalComplaints}</p>
+            <p className="text-xs text-foreground/60">{t.company.complaints}</p>
           </div>
-          <div className="bg-gray-50 rounded-xl p-3 text-center">
+          <div className="bg-foreground/5 rounded-xl p-3 text-center">
             <p className="text-xl font-bold text-emerald-600">{company.responseRate}%</p>
-            <p className="text-xs text-gray-500">{t.company.responseRate}</p>
+            <p className="text-xs text-foreground/60">{t.company.responseRate}</p>
           </div>
         </div>
 
         {/* Progress Bar */}
         <div className="mt-4">
-          <div className="flex justify-between text-xs text-gray-500 mb-1">
+          <div className="flex justify-between text-xs text-foreground/60 mb-1">
             <span>{t.company.resolvedComplaints}</span>
             <span>{Math.round((company.resolvedComplaints / company.totalComplaints) * 100)}%</span>
           </div>
-          <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div className="h-2 bg-foreground/10 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full transition-all duration-500"
               style={{ width: `${(company.resolvedComplaints / company.totalComplaints) * 100}%` }}

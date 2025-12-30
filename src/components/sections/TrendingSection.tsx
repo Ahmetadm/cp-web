@@ -30,9 +30,9 @@ export function TrendingSection() {
   const row2Cards = [...dummyComplaints2, ...dummyComplaints2];
 
   return (
-    <section className="overflow-hidden py-16 bg-white dark:bg-gray-900">
+    <section className="overflow-hidden py-16 bg-background">
       <div className="container mx-auto mb-8 px-4">
-        <h2 className="mb-8 text-3xl font-bold text-gray-900 dark:text-white">
+        <h2 className="mb-8 text-3xl font-bold text-foreground">
           {t.sections.trending.title}
         </h2>
       </div>
@@ -43,7 +43,7 @@ export function TrendingSection() {
           {row1Cards.map((complaint, index) => (
             <div
               key={`row1-${complaint.id}-${index}`}
-              className="w-[90vw] flex-shrink-0 overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm transition-shadow hover:shadow-md sm:w-[350px]"
+              className="w-[90vw] flex-shrink-0 overflow-hidden rounded-xl border border-foreground/10 bg-background shadow-sm transition-shadow hover:shadow-md sm:w-[350px]"
             >
               <div className="p-6">
                 <div className="mb-4 flex items-center">
@@ -51,10 +51,10 @@ export function TrendingSection() {
                     {complaint.user}
                   </div>
                   <div className="ml-3">
-                    <h3 className="font-medium text-gray-900 dark:text-white">
+                    <h3 className="font-medium text-foreground">
                       {t.complaint.user} {complaint.userId}
                     </h3>
-                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center text-sm text-foreground/60">
                       <span>
                         {complaint.views} {t.complaint.views}
                       </span>
@@ -66,10 +66,10 @@ export function TrendingSection() {
                     </span>
                   </div>
                 </div>
-                <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-2 text-lg font-bold text-foreground">
                   {complaint.title}
                 </h3>
-                <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
+                <p className="line-clamp-2 text-sm text-foreground/60">
                   {complaint.description}
                 </p>
               </div>
@@ -84,7 +84,7 @@ export function TrendingSection() {
           {row2Cards.map((complaint, index) => (
             <div
               key={`row2-${complaint.id}-${index}`}
-              className="w-[90vw] flex-shrink-0 overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm transition-shadow hover:shadow-md sm:w-[350px]"
+              className="w-[90vw] flex-shrink-0 overflow-hidden rounded-xl border border-foreground/10 bg-background shadow-sm transition-shadow hover:shadow-md sm:w-[350px]"
             >
               <div className="p-6">
                 <div className="mb-4 flex items-center">
@@ -92,10 +92,10 @@ export function TrendingSection() {
                     {complaint.user}
                   </div>
                   <div className="ml-3">
-                    <h3 className="font-medium text-gray-900 dark:text-white">
+                    <h3 className="font-medium text-foreground">
                       {t.complaint.user} {complaint.userId}
                     </h3>
-                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center text-sm text-foreground/60">
                       <span>
                         {complaint.views} {t.complaint.views}
                       </span>
@@ -107,10 +107,10 @@ export function TrendingSection() {
                     </span>
                   </div>
                 </div>
-                <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+                <h3 className="mb-2 text-lg font-bold text-foreground">
                   {complaint.title}
                 </h3>
-                <p className="line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
+                <p className="line-clamp-2 text-sm text-foreground/60">
                   {complaint.description}
                 </p>
               </div>

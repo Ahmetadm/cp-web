@@ -31,8 +31,8 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className="flex items-center justify-center w-10 h-10 text-gray-700 bg-white border border-gray-200 rounded-lg">
-        <span className="w-4 h-4 bg-gray-200 rounded-full animate-pulse" />
+      <button className="flex items-center justify-center w-10 h-10 text-foreground bg-background border border-foreground/10 rounded-lg">
+        <span className="w-4 h-4 bg-foreground/20 rounded-full animate-pulse" />
       </button>
     );
   }
@@ -73,14 +73,14 @@ export function ThemeToggle() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center w-10 h-10 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+        className="flex items-center justify-center w-10 h-10 text-foreground bg-background border border-foreground/10 rounded-lg hover:bg-foreground/5 transition-colors"
         aria-label="Toggle theme"
       >
         {currentThemeIcon}
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-36 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 overflow-hidden">
+        <div className="absolute right-0 mt-2 w-36 bg-background border border-foreground/10 rounded-lg shadow-lg z-50 overflow-hidden">
           {themeOptions.map((option) => (
             <button
               key={option.value}
@@ -88,10 +88,10 @@ export function ThemeToggle() {
                 setTheme(option.value);
                 setIsOpen(false);
               }}
-              className={`w-full px-4 py-2 text-left text-sm flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
+              className={`w-full px-4 py-2 text-left text-sm flex items-center gap-2 hover:bg-foreground/5 transition-colors ${
                 theme === option.value
-                  ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium'
-                  : 'text-gray-700 dark:text-gray-200'
+                  ? 'bg-primary/10 text-primary font-medium'
+                  : 'text-foreground'
               }`}
             >
               {option.icon}

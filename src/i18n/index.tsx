@@ -1,74 +1,30 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
+import type { Locale } from '@/i18n-config';
 import enMessages from './messages/en.json';
-import sqMessages from './messages/sq.json';
-import mkMessages from './messages/mk.json';
-
-// Supported locales
-export type Locale = 'en' | 'sq' | 'mk';
-
-export const locales: Locale[] = ['en', 'sq', 'mk'];
-export const defaultLocale: Locale = 'en';
-
-// Language display names
-export const languageNames: Record<Locale, string> = {
-  en: 'English',
-  sq: 'Shqip',
-  mk: 'Македонски',
-};
 
 // Messages type
-type Messages = typeof enMessages;
-
-// All messages by locale
-const messages: Record<Locale, Messages> = {
-  en: enMessages,
-  sq: sqMessages,
-  mk: mkMessages,
-};
+export type Messages = typeof enMessages;
 
 // Context type
 interface LocaleContextType {
   locale: Locale;
-  setLocale: (locale: Locale) => void;
   t: Messages;
 }
 
 // Create context
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
 
-// Storage key
-const LOCALE_STORAGE_KEY = 'preferred-locale';
-
 // Provider component
 interface LocaleProviderProps {
   children: ReactNode;
+  locale: Locale;
+  messages: Messages;
 }
 
-export function LocaleProvider({ children }: LocaleProviderProps): React.ReactElement {
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
-  const [isHydrated, setIsHydrated] = useState(false);
-
-  // Load locale from localStorage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem(LOCALE_STORAGE_KEY) as Locale | null;
-    if (stored && locales.includes(stored)) {
-      setLocaleState(stored);
-    }
-    setIsHydrated(true);
-  }, []);
-
-  // Save locale to localStorage when it changes
-  const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale);
-    localStorage.setItem(LOCALE_STORAGE_KEY, newLocale);
-  };
-
-  // Get translations for current locale
-  const t = messages[locale];
-
-  const value = { locale: isHydrated ? locale : defaultLocale, setLocale, t: isHydrated ? t : messages[defaultLocale] };
+export function LocaleProvider({ children, locale, messages }: LocaleProviderProps): React.ReactElement {
+  const value = { locale, t: messages };
 
   return (
     <LocaleContext.Provider value={value}>

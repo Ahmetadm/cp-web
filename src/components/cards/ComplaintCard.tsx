@@ -29,13 +29,13 @@ export function ComplaintCard({ complaint, variant = 'default' }: ComplaintCardP
   if (variant === 'compact') {
     return (
       <Link href={`/complaints/${complaint.id}`}>
-        <article className="group p-4 bg-white rounded-xl border border-gray-100 hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-100/50 transition-all duration-300">
+        <article className="group p-4 bg-background rounded-xl border border-foreground/10 hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-100/50 transition-all duration-300">
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors line-clamp-1">
+              <h3 className="font-semibold text-foreground group-hover:text-indigo-600 transition-colors line-clamp-1">
                 {complaint.title}
               </h3>
-              <p className="text-sm text-gray-500 mt-1">{complaint.company.name}</p>
+              <p className="text-sm text-foreground/60 mt-1">{complaint.company.name}</p>
             </div>
             <Badge status={complaint.status} size="sm" />
           </div>
@@ -58,7 +58,7 @@ export function ComplaintCard({ complaint, variant = 'default' }: ComplaintCardP
 
             <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/20">
               <span className="text-white/90 font-medium">{complaint.company.name}</span>
-              <span className="text-white/70 text-sm">{formatDate(complaint.createdAt)}</span>
+              <span className="text-white/70 text-sm" suppressHydrationWarning>{formatDate(complaint.createdAt)}</span>
             </div>
           </div>
         </article>
@@ -68,17 +68,17 @@ export function ComplaintCard({ complaint, variant = 'default' }: ComplaintCardP
 
   return (
     <Link href={`/complaints/${complaint.id}`}>
-      <article className="group bg-white rounded-2xl border border-gray-100 p-5 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50 transition-all duration-300">
+      <article className="group bg-background rounded-2xl border border-foreground/10 p-5 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50 transition-all duration-300">
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
             {/* Company Avatar */}
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-lg font-bold text-gray-600">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-foreground/5 to-foreground/10 flex items-center justify-center text-lg font-bold text-foreground/80">
               {complaint.company.name.charAt(0)}
             </div>
             <div>
-              <p className="text-sm text-gray-500">{complaint.company.name}</p>
-              <p className="text-xs text-gray-400">{formatDate(complaint.createdAt)}</p>
+              <p className="text-sm text-foreground/60">{complaint.company.name}</p>
+              <p className="text-xs text-foreground/40" suppressHydrationWarning>{formatDate(complaint.createdAt)}</p>
             </div>
           </div>
           <Badge status={complaint.status} />
@@ -86,15 +86,15 @@ export function ComplaintCard({ complaint, variant = 'default' }: ComplaintCardP
 
         {/* Content */}
         <div className="mt-4">
-          <h3 className="font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors line-clamp-2">
+          <h3 className="font-semibold text-foreground group-hover:text-indigo-600 transition-colors line-clamp-2">
             {complaint.title}
           </h3>
-          <p className="text-gray-600 mt-2 text-sm line-clamp-2">{complaint.content}</p>
+          <p className="text-foreground/80 mt-2 text-sm line-clamp-2">{complaint.content}</p>
         </div>
 
         {/* Footer */}
-        <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
-          <div className="flex items-center gap-1.5 text-gray-400 text-sm">
+        <div className="flex items-center gap-4 mt-4 pt-4 border-t border-foreground/10">
+          <div className="flex items-center gap-1.5 text-foreground/40 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
@@ -117,7 +117,7 @@ export function ComplaintCard({ complaint, variant = 'default' }: ComplaintCardP
             </svg>
             <span>{complaint.viewCount} {t.complaint.views}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-gray-400 text-sm">
+          <div className="flex items-center gap-1.5 text-foreground/40 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"

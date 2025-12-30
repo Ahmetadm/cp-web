@@ -65,7 +65,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-background border-t border-foreground/10 text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -73,15 +73,15 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2">
               <div className="flex items-center whitespace-nowrap text-xl font-bold">
-                <span className="text-[#4a2899]">complaint</span>
-                <span className="text-[#10b981]">hub</span>
+                <span className="text-primary-600 dark:text-primary-500">complaint</span>
+                <span className="text-secondary-500">hub</span>
               </div>
             </Link>
-            <p className="mt-4 text-gray-400 text-sm leading-relaxed">
+            <p className="mt-4 text-foreground/60 text-sm leading-relaxed">
               {t.footer.description}
             </p>
             <div className="mt-6">
-              <p className="text-sm text-gray-400 mb-3">{t.footer.socialFollow}</p>
+              <p className="text-sm text-foreground/60 mb-3">{t.footer.socialFollow}</p>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
                   <a
@@ -89,7 +89,7 @@ export function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-indigo-600 hover:text-white transition-colors"
+                    className="w-10 h-10 bg-foreground/5 rounded-lg flex items-center justify-center text-foreground/60 hover:bg-primary hover:text-white transition-colors"
                     aria-label={social.name}
                   >
                     {social.icon}
@@ -101,13 +101,13 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-white mb-4">{t.footer.quickLinks}</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-foreground/60 hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -118,13 +118,13 @@ export function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="font-semibold text-white mb-4">{t.footer.support}</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t.footer.support}</h4>
             <ul className="space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-foreground/60 hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -135,13 +135,13 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold text-white mb-4">{t.footer.legal}</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t.footer.legal}</h4>
             <ul className="space-y-3">
               {legalLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-foreground/60 hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -152,8 +152,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-gray-800 text-center md:text-left">
-          <p className="text-gray-400 text-sm">
+        <div className="py-6 border-t border-foreground/10 text-center md:text-left">
+          <p className="text-foreground/60 text-sm">
             {t.footer.copyright}
           </p>
         </div>

@@ -185,56 +185,56 @@ export const dummyCategories: Category[] = [
     id: '1',
     name: 'Telecommunications',
     slug: 'telekomunikacii',
-    icon: '📡',
+    icon: 'Radio',
     complaintCount: 3450,
   },
   {
     id: '2',
     name: 'Banking & Finance',
     slug: 'banki-finansii',
-    icon: '🏦',
+    icon: 'Landmark',
     complaintCount: 2890,
   },
   {
     id: '3',
     name: 'Energy',
     slug: 'energetika',
-    icon: '⚡',
+    icon: 'Zap',
     complaintCount: 2100,
   },
   {
     id: '4',
     name: 'E-commerce',
     slug: 'e-trgovija',
-    icon: '🛒',
+    icon: 'ShoppingCart',
     complaintCount: 1870,
   },
   {
     id: '5',
     name: 'Transport',
     slug: 'transport',
-    icon: '🚌',
+    icon: 'Bus',
     complaintCount: 980,
   },
   {
     id: '6',
     name: 'Insurance',
     slug: 'osiguruvanje',
-    icon: '🛡️',
+    icon: 'Shield',
     complaintCount: 756,
   },
   {
     id: '7',
     name: 'Health',
     slug: 'zdravstvo',
-    icon: '🏥',
+    icon: 'Stethoscope',
     complaintCount: 654,
   },
   {
     id: '8',
     name: 'Tourism',
     slug: 'turizam',
-    icon: '✈️',
+    icon: 'Plane',
     complaintCount: 543,
   },
 ];
@@ -244,28 +244,28 @@ export const dummyStatistics: Statistic[] = [
     id: '1',
     label: 'totalComplaints', // Changed to key
     value: '45,678',
-    icon: '📝',
+    icon: 'FileText',
     description: 'totalComplaintsDesc', // Changed to key
   },
   {
     id: '2',
     label: 'resolvedComplaints', // Changed to key
     value: '32,456',
-    icon: '✅',
+    icon: 'CheckCircle',
     description: 'resolvedComplaintsDesc', // Changed to key
   },
   {
     id: '3',
     label: 'registeredCompanies', // Changed to key
     value: '1,234',
-    icon: '🏢',
+    icon: 'Building2',
     description: 'registeredCompaniesDesc', // Changed to key
   },
   {
     id: '4',
     label: 'satisfiedUsers', // Changed to key
     value: '28,900',
-    icon: '😊',
+    icon: 'Smile',
     description: 'satisfiedUsersDesc', // Changed to key
   },
 ];
