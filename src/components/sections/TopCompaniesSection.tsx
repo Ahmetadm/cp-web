@@ -60,7 +60,7 @@ export function TopCompaniesSection() {
               >
                 {dummyCategories.map((category) => (
                   <option key={category.id} value={category.id}>
-                    {(t.categoriesList as any)[category.slug] || category.name}
+                    {(t.categoriesList as Record<string, string>)[category.slug] || category.name}
                   </option>
                 ))}
               </select>

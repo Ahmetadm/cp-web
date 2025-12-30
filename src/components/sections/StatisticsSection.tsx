@@ -38,8 +38,8 @@ export function StatisticsSection() {
               key={stat.id}
               stat={{
                 ...stat,
-                label: (t.sections.statistics as any)[stat.label],
-                description: stat.description ? (t.sections.statistics as any)[stat.description] : undefined
+                label: (t.sections.statistics as Record<string, string>)[stat.label],
+                description: stat.description ? (t.sections.statistics as Record<string, string>)[stat.description] : undefined
               }}
             />
           ))}

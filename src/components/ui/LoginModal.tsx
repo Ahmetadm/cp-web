@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import { X, ArrowRight, Loader2 } from 'lucide-react';
-import { useTranslations } from '@/i18n';
+import { useUserStore } from '@/store/user';
+import { api } from '@/lib/api';
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -12,43 +13,85 @@ interface LoginModalProps {
 type AuthStep = 'PHONE' | 'OTP' | 'SIGNUP';
 
 export function LoginModal({ isOpen, onClose }: LoginModalProps) {
-  const t = useTranslations();
   const [step, setStep] = useState<AuthStep>('PHONE');
   const [phone, setPhone] = useState('');
   const [otp, setOtp] = useState('');
   const [fullName, setFullName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { setUser } = useUserStore();
+
+  const [flow, setFlow] = useState<'SIGNIN' | 'SIGNUP'>('SIGNIN');
 
   if (!isOpen) return null;
 
-  const handlePhoneSubmit = (e: React.FormEvent) => {
+  const handlePhoneSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
+    setError(null);
+
+    const { error } = await api.POST('/auth/signin', {
+      body: { phone },
+    });
+
+    setIsLoading(false);
+    if (error) {
+      setError(error.message || 'An unexpected error occurred.');
+    } else {
+      setFlow('SIGNIN');
       setStep('OTP');
-    }, 1000);
+    }
   };
 
-  const handleOtpSubmit = (e: React.FormEvent) => {
+  const handleOtpSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
-      onClose(); // Login successful
-    }, 1000);
+    setError(null);
+
+    const endpoint = flow === 'SIGNUP' ? '/auth/signup/verify' : '/auth/signin/verify';
+    const { data, error } = await api.POST(endpoint, {
+      body: { phone, code: otp },
+    });
+
+    setIsLoading(false);
+    if (error) {
+      setError('Invalid or expired OTP. Please try again.');
+    } else if (data) {
+      setUser(data.user, data.accessToken);
+      onClose();
+    }
   };
 
-  const handleSignupSubmit = (e: React.FormEvent) => {
+  const handleSignupSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
+    setError(null);
+
+    const { error } = await api.POST('/auth/signup', {
+      body: { phone, fullName },
+    });
+
+    setIsLoading(false);
+    if (error) {
+      setError(error.message || 'An unexpected error occurred.');
+    } else {
+      setFlow('SIGNUP');
       setStep('OTP');
-    }, 1000);
+    }
+  };
+
+  const handleOtpChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const { value } = e.target;
+    if (/[^0-9]/.test(value)) return;
+
+    const newOtp = otp.split('');
+    newOtp[index] = value;
+    setOtp(newOtp.join(''));
+
+    // Move to next input
+    if (value && e.target.nextElementSibling instanceof HTMLInputElement) {
+      e.target.nextElementSibling.focus();
+    }
   };
 
   return (
@@ -103,6 +146,8 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
             </p>
           </div>
 
+          {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
+
           {/* Forms */}
           {step === 'PHONE' && (
             <form onSubmit={handlePhoneSubmit} className="space-y-4">
@@ -125,7 +170,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <>Continue <ArrowRight className="w-4 h-4" /></>}
               </button>
               <div className="mt-6 text-center text-sm">
-                <span className="text-foreground/60">Don't have an account? </span>
+                <span className="text-foreground/60">Don&apos;t have an account? </span>
                 <button
                   type="button"
                   onClick={() => setStep('SIGNUP')}
@@ -140,12 +185,15 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
           {step === 'OTP' && (
             <form onSubmit={handleOtpSubmit} className="space-y-6">
               <div className="flex justify-center gap-2">
-                {[...Array(4)].map((_, i) => (
+                {[...Array(6)].map((_, i) => (
                   <input
                     key={i}
                     type="text"
                     maxLength={1}
-                    className="w-14 h-14 text-center text-2xl font-bold rounded-xl border border-foreground/10 bg-foreground/5 text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    value={otp[i] || ''}
+                    onChange={(e) => handleOtpChange(e, i)}
+                    className="w-12 h-12 text-center text-2xl font-bold rounded-xl border border-foreground/10 bg-foreground/5 text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    required
                   />
                 ))}
               </div>

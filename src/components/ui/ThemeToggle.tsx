@@ -3,20 +3,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { useTranslations } from '@/i18n';
+import { useIsMounted } from '@/lib/hooks';
 
 type ThemeOption = 'light' | 'dark' | 'system';
 
 export function ThemeToggle() {
   const t = useTranslations();
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const isMounted = useIsMounted();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Avoid hydration mismatch
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -29,7 +25,7 @@ export function ThemeToggle() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  if (!mounted) {
+  if (!isMounted) {
     return (
       <button className="flex items-center justify-center w-10 h-10 text-foreground bg-background border border-foreground/10 rounded-lg">
         <span className="w-4 h-4 bg-foreground/20 rounded-full animate-pulse" />

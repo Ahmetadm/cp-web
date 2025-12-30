@@ -15,7 +15,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
 
   // Get localized category name if available, otherwise fallback to category.name
   // Using type assertion to access dynamic key
-  const localizedName = (t.categoriesList as any)[category.slug] || category.name;
+  const localizedName = (t.categoriesList as Record<string, string>)[category.slug] || category.name;
 
   return (
     <Link href={`/categories/${category.slug}`}>

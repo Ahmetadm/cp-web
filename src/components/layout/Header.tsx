@@ -7,6 +7,8 @@ import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { Search, X } from 'lucide-react';
 import { LoginModal } from '@/components/ui/LoginModal';
+import { useUserStore } from '@/store/user';
+import { UserAvatar } from '@/components/ui/UserAvatar';
 
 export function Header() {
   const t = useTranslations();
@@ -14,6 +16,7 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const { user } = useUserStore();
 
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
@@ -79,13 +82,17 @@ export function Header() {
               <Search className="w-5 h-5" />
             </button>
 
-            {/* Login Button */}
-            <button
-              onClick={() => setIsLoginModalOpen(true)}
-              className="hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
-            >
-              {t.nav.login}
-            </button>
+            {/* Login Button / User Avatar */}
+            {user ? (
+              <UserAvatar />
+            ) : (
+              <button
+                onClick={() => setIsLoginModalOpen(true)}
+                className="hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
+              >
+                {t.nav.login}
+              </button>
+            )}
 
             {/* Submit Complaint Button */}
             <Link href="/submit-complaint" className="hidden sm:block">
@@ -190,15 +197,17 @@ export function Header() {
                 {t.nav.trend}
               </Link>
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-foreground/10">
-                <button
-                  onClick={() => {
-                    setIsLoginModalOpen(true);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="w-full px-4 py-2 text-foreground hover:bg-foreground/5 rounded-lg font-medium transition-colors text-left"
-                >
-                  {t.nav.login}
-                </button>
+                {user ? null : (
+                  <button
+                    onClick={() => {
+                      setIsLoginModalOpen(true);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full px-4 py-2 text-foreground hover:bg-foreground/5 rounded-lg font-medium transition-colors text-left"
+                  >
+                    {t.nav.login}
+                  </button>
+                )}
                 <Link href="/submit-complaint" onClick={() => setIsMobileMenuOpen(false)}>
                   <button className="w-full bg-[#6c5ce7] hover:bg-[#5b4bc9] text-white px-4 py-2 rounded-lg font-medium transition-colors">
                     {t.nav.submitComplaint}
