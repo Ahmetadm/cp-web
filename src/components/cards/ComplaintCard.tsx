@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Complaint } from '@/types';
-import { Badge } from '@/components/ui/Badge';
+import { StatusBadge } from '@/components/ui/StatusBadge';
 import { useTranslations, useLocale } from '@/i18n';
 
 interface ComplaintCardProps {
@@ -37,7 +37,7 @@ export function ComplaintCard({ complaint, variant = 'default' }: ComplaintCardP
               </h3>
               <p className="text-sm text-foreground/60 mt-1">{complaint.company.name}</p>
             </div>
-            <Badge status={complaint.status} size="sm" />
+            <StatusBadge status={complaint.status} size="sm" />
           </div>
         </article>
       </Link>
@@ -52,7 +52,7 @@ export function ComplaintCard({ complaint, variant = 'default' }: ComplaintCardP
           <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
 
           <div className="relative">
-            <Badge status={complaint.status} />
+            <StatusBadge status={complaint.status} />
             <h3 className="text-xl font-bold mt-4 line-clamp-2">{complaint.title}</h3>
             <p className="text-white/80 mt-2 line-clamp-2">{complaint.content}</p>
 
@@ -81,7 +81,7 @@ export function ComplaintCard({ complaint, variant = 'default' }: ComplaintCardP
               <p className="text-xs text-foreground/40" suppressHydrationWarning>{formatDate(complaint.createdAt)}</p>
             </div>
           </div>
-          <Badge status={complaint.status} />
+          <StatusBadge status={complaint.status} />
         </div>
 
         {/* Content */}

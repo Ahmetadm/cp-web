@@ -137,5 +137,11 @@
     "osiguruvanje": "Insurance",
     "zdravstvo": "Health",
     "turizam": "Tourism"
+  },
+  "userMenu": {
+    "myComplaints": "My Complaints",
+    "myProfile": "My Profile",
+    "settings": "Settings",
+    "logout": "Logout"
   }
 }

@@ -137,5 +137,11 @@
     "osiguruvanje": "Sigurimet",
     "zdravstvo": "Shëndetësia",
     "turizam": "Turizmi"
+  },
+  "userMenu": {
+    "myComplaints": "Ankesat e Mia",
+    "myProfile": "Profili Im",
+    "settings": "Cilësimet",
+    "logout": "Dil"
   }
 }

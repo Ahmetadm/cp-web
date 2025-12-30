@@ -16,13 +16,64 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { user } = useUserStore();
+  const { user, hasHydrated } = useUserStore();
 
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
       searchInputRef.current.focus();
     }
   }, [isSearchOpen]);
+
+  // Render auth button/avatar based on hydration state
+  const renderAuthSection = () => {
+    // Show skeleton while hydrating to prevent flash
+    if (!hasHydrated) {
+      return (
+        <div className="hidden lg:flex items-center">
+          <div className="w-10 h-10 rounded-full bg-foreground/10 animate-pulse" />
+        </div>
+      );
+    }
+
+    // After hydration, show actual auth state
+    if (user) {
+      return <UserAvatar />;
+    }
+
+    return (
+      <button
+        onClick={() => setIsLoginModalOpen(true)}
+        className="hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
+      >
+        {t.nav.login}
+      </button>
+    );
+  };
+
+  // Render mobile auth section
+  const renderMobileAuthSection = () => {
+    if (!hasHydrated) {
+      return (
+        <div className="w-full h-10 rounded-lg bg-foreground/10 animate-pulse" />
+      );
+    }
+
+    if (user) {
+      return null;
+    }
+
+    return (
+      <button
+        onClick={() => {
+          setIsLoginModalOpen(true);
+          setIsMobileMenuOpen(false);
+        }}
+        className="w-full px-4 py-2 text-foreground hover:bg-foreground/5 rounded-lg font-medium transition-colors text-left"
+      >
+        {t.nav.login}
+      </button>
+    );
+  };
 
   return (
     <>
@@ -83,16 +134,7 @@ export function Header() {
             </button>
 
             {/* Login Button / User Avatar */}
-            {user ? (
-              <UserAvatar />
-            ) : (
-              <button
-                onClick={() => setIsLoginModalOpen(true)}
-                className="hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
-              >
-                {t.nav.login}
-              </button>
-            )}
+            {renderAuthSection()}
 
             {/* Submit Complaint Button */}
             <Link href="/submit-complaint" className="hidden sm:block">
@@ -197,17 +239,7 @@ export function Header() {
                 {t.nav.trend}
               </Link>
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-foreground/10">
-                {user ? null : (
-                  <button
-                    onClick={() => {
-                      setIsLoginModalOpen(true);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="w-full px-4 py-2 text-foreground hover:bg-foreground/5 rounded-lg font-medium transition-colors text-left"
-                  >
-                    {t.nav.login}
-                  </button>
-                )}
+                {renderMobileAuthSection()}
                 <Link href="/submit-complaint" onClick={() => setIsMobileMenuOpen(false)}>
                   <button className="w-full bg-[#6c5ce7] hover:bg-[#5b4bc9] text-white px-4 py-2 rounded-lg font-medium transition-colors">
                     {t.nav.submitComplaint}

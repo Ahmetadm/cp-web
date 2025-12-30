@@ -11,8 +11,10 @@ interface User {
 interface UserState {
   user: User | null;
   token: string | null;
+  hasHydrated: boolean;
   setUser: (user: User, token: string) => void;
   clearUser: () => void;
+  setHasHydrated: (hydrated: boolean) => void;
 }
 
 export const useUserStore = create<UserState>()(
@@ -20,12 +22,18 @@ export const useUserStore = create<UserState>()(
     (set) => ({
       user: null,
       token: null,
+      hasHydrated: false,
       setUser: (user, token) => set({ user, token }),
       clearUser: () => set({ user: null, token: null }),
+      setHasHydrated: (hydrated) => set({ hasHydrated: hydrated }),
     }),
     {
-      name: 'user-storage', // name of the item in the storage (must be unique)
-      storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+      name: 'user-storage',
+      storage: createJSONStorage(() => localStorage),
+      onRehydrateStorage: () => (state) => {
+        // Called when rehydration is complete
+        state?.setHasHydrated(true);
+      },
     },
   ),
 );

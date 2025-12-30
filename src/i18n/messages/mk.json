@@ -137,5 +137,11 @@
     "osiguruvanje": "Осигурување",
     "zdravstvo": "Здравство",
     "turizam": "Туризам"
+  },
+  "userMenu": {
+    "myComplaints": "Мои поплаки",
+    "myProfile": "Мој профил",
+    "settings": "Поставки",
+    "logout": "Одјава"
   }
 }

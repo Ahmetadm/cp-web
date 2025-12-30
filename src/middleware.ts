@@ -9,7 +9,6 @@ function getLocale(request: NextRequest): string | undefined {
   const negotiatorHeaders: Record<string, string> = {}
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
 
-  // @ts-expect-error locales are readonly
   const locales: string[] = [...i18n.locales]
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages()
 
@@ -32,7 +31,7 @@ export function middleware(request: NextRequest) {
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request)
-    
+
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,

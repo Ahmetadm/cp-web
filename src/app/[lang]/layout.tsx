@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { LocaleProvider } from "@/i18n";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { QueryProvider } from "@/components/providers/QueryProvider";
+import { AuthProvider } from "@/components/providers/AuthProvider";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { i18n, type Locale } from "@/i18n-config";
 
@@ -29,11 +31,11 @@ export async function generateStaticParams() {
 
 export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
   const params = await props.params;
-  const { lang } = params;
-  
+  const lang = params.lang as Locale;
+
   const messages = await getDictionary(lang);
 
   return (
@@ -46,7 +48,11 @@ export default async function RootLayout(props: {
             enableSystem
             disableTransitionOnChange
           >
-            {props.children}
+            <QueryProvider>
+              <AuthProvider>
+                {props.children}
+              </AuthProvider>
+            </QueryProvider>
           </ThemeProvider>
         </LocaleProvider>
       </body>
