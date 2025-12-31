@@ -8,7 +8,13 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-metropolis)", "Metropolis", "sans-serif"],
+        metropolis: ["var(--font-metropolis)", "Metropolis", "sans-serif"],
+        poppins: ["var(--font-poppins)", "Poppins", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

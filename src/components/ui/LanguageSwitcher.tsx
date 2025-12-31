@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale } from '@/i18n';
 import { locales, languageNames, Locale } from '@/i18n-config';
@@ -20,9 +20,14 @@ const flags: Record<Locale, string> = {
 };
 
 export function LanguageSwitcher() {
+  const [mounted, setMounted] = useState(false);
   const { locale } = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleLocaleChange = (newLocale: Locale) => {
     if (!pathname) return;
@@ -31,6 +36,16 @@ export function LanguageSwitcher() {
     const newPath = segments.join('/');
     router.push(newPath);
   };
+
+  // Prevent hydration mismatch by not rendering dropdown until client-side
+  if (!mounted) {
+    return (
+      <Button variant="ghost" className="gap-1.5 px-2" aria-label="Select language">
+        <span className="text-lg">{flags[locale]}</span>
+        <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+      </Button>
+    );
+  }
 
   return (
     <DropdownMenu>

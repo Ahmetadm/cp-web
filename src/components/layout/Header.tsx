@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from '@/i18n';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
@@ -9,6 +10,7 @@ import { Search, X } from 'lucide-react';
 import { LoginModal } from '@/components/ui/LoginModal';
 import { useUserStore } from '@/store/user';
 import { UserAvatar } from '@/components/ui/UserAvatar';
+import { Logo } from '../logo/Logo';
 
 export function Header() {
   const t = useTranslations();
@@ -81,12 +83,7 @@ export function Header() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex min-w-0 items-center gap-4 lg:gap-8">
             {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0">
-              <div className="flex items-center whitespace-nowrap text-xl font-bold sm:text-2xl">
-                <span className="text-primary-600 dark:text-primary-500">complaint</span>
-                <span className="text-secondary-500">hub</span>
-              </div>
-            </Link>
+          <Logo isLink={true} showText={true}/>
 
             {/* Desktop Navigation */}
             <nav className="hidden items-center space-x-6 lg:flex">
@@ -141,7 +138,7 @@ export function Header() {
               <button className="inline-flex items-center bg-[#6c5ce7] hover:bg-[#5b4bc9] text-white px-3 py-2 md:px-4 rounded-lg font-medium text-sm transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 md:mr-2"
+                  className="h-4 w-4 lg:mr-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -153,7 +150,7 @@ export function Header() {
                     d="M12 4v16m8-8H4"
                   />
                 </svg>
-                <span className="hidden md:inline">{t.nav.submitComplaint}</span>
+                <span className="hidden lg:inline">{t.nav.submitComplaint}</span>
               </button>
             </Link>
 

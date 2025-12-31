@@ -3,6 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslations } from '@/i18n';
+import Image from 'next/image';
+import { Logo } from '../logo/Logo';
 
 export function Footer() {
   const t = useTranslations();
@@ -71,12 +73,7 @@ export function Footer() {
         <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex items-center whitespace-nowrap text-xl font-bold">
-                <span className="text-primary-600 dark:text-primary-500">complaint</span>
-                <span className="text-secondary-500">hub</span>
-              </div>
-            </Link>
+          <Logo isLink={true} showText={true} className="-ml-4"/>
             <p className="mt-4 text-foreground/60 text-sm leading-relaxed">
               {t.footer.description}
             </p>

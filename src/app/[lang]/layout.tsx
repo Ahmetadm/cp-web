@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "../globals.css";
 import { LocaleProvider } from "@/i18n";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
@@ -8,9 +8,28 @@ import { AuthProvider } from "@/components/providers/AuthProvider";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { i18n, type Locale } from "@/i18n-config";
 
-const inter = Inter({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const metropolis = localFont({
+  src: [
+    { path: "../fonts/Metropolis-Thin.otf", weight: "100", style: "normal" },
+    { path: "../fonts/Metropolis-ThinItalic.otf", weight: "100", style: "italic" },
+    { path: "../fonts/Metropolis-ExtraLight.otf", weight: "200", style: "normal" },
+    { path: "../fonts/Metropolis-ExtraLightItalic.otf", weight: "200", style: "italic" },
+    { path: "../fonts/Metropolis-Light.otf", weight: "300", style: "normal" },
+    { path: "../fonts/Metropolis-LightItalic.otf", weight: "300", style: "italic" },
+    { path: "../fonts/Metropolis-Regular.otf", weight: "400", style: "normal" },
+    { path: "../fonts/Metropolis-RegularItalic.otf", weight: "400", style: "italic" },
+    { path: "../fonts/Metropolis-Medium.otf", weight: "500", style: "normal" },
+    { path: "../fonts/Metropolis-MediumItalic.otf", weight: "500", style: "italic" },
+    { path: "../fonts/Metropolis-SemiBold.otf", weight: "600", style: "normal" },
+    { path: "../fonts/Metropolis-SemiBoldItalic.otf", weight: "600", style: "italic" },
+    { path: "../fonts/Metropolis-Bold.otf", weight: "700", style: "normal" },
+    { path: "../fonts/Metropolis-BoldItalic.otf", weight: "700", style: "italic" },
+    { path: "../fonts/Metropolis-ExtraBold.otf", weight: "800", style: "normal" },
+    { path: "../fonts/Metropolis-ExtraBoldItalic.otf", weight: "800", style: "italic" },
+    { path: "../fonts/Metropolis-Black.otf", weight: "900", style: "normal" },
+    { path: "../fonts/Metropolis-BlackItalic.otf", weight: "900", style: "italic" },
+  ],
+  variable: "--font-metropolis",
 });
 
 export const metadata: Metadata = {
@@ -40,7 +59,7 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={lang} suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${metropolis.className} ${metropolis.variable} antialiased`}>
         <LocaleProvider locale={lang} messages={messages}>
           <ThemeProvider
             attribute="class"
