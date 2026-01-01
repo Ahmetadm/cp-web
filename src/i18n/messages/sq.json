@@ -143,5 +143,30 @@
     "myProfile": "Profili Im",
     "settings": "Cilësimet",
     "logout": "Dil"
+  },
+  "trend100": {
+    "title": "Tendenca",
+    "subtitle": "Zbuloni kompanitë më të popullarizuara dhe më të vizituara bazuar në angazhimin e përdoruesve, vëllimin e ankesave dhe aktivitetin e përgjithshëm në 30 ditët e fundit.",
+    "last30Days": "30 Ditët e Fundit",
+    "visits": "Vizita",
+    "complaints": "Ankesa",
+    "companies": "Kompani",
+    "statistics": "Statistikat",
+    "performance": "Performanca",
+    "topIssues": "Problemet Kryesore",
+    "totalComplaints": "Ankesat Totale",
+    "last30DaysComplaints": "30 Ditët e Fundit",
+    "visits30Days": "Vizitat (30 ditë)",
+    "responseRate": "Shkalla e Përgjigjes",
+    "avgResponse": "Përgjigja Mesatare",
+    "resolved": "Të Zgjidhra",
+    "recentActivity": "Aktiviteti i Fundit",
+    "viewCompanyProfile": "Shiko Profilin e Kompanisë",
+    "viewFullRankings": "Shiko të gjitha Renditjet",
+    "wantToSeeMore": "Dëshironi të shihni renditjet e plota?",
+    "chartTitle": "Tendenca e Vizitave të Markës",
+    "visitors": "Numri i Vizitorëve",
+    "complaintCount": "Numri i Ankesave",
+    "last7DaysComplaints": "Ankesat e 7 Ditëve të Fundit"
   }
 }

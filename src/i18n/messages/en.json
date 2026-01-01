@@ -143,5 +143,30 @@
     "myProfile": "My Profile",
     "settings": "Settings",
     "logout": "Logout"
+  },
+  "trend100": {
+    "title": "Trend",
+    "subtitle": "Discover the most popular and visited companies based on user engagement, complaint volume, and overall activity in the last 30 days.",
+    "last30Days": "Last 30 Days",
+    "visits": "Visits",
+    "complaints": "Complaints",
+    "companies": "Companies",
+    "statistics": "Statistics",
+    "performance": "Performance",
+    "topIssues": "Top Issues",
+    "totalComplaints": "Total Complaints",
+    "last30DaysComplaints": "Last 30 Days",
+    "visits30Days": "Visits (30 days)",
+    "responseRate": "Response Rate",
+    "avgResponse": "Avg Response",
+    "resolved": "Resolved",
+    "recentActivity": "Recent Activity",
+    "viewCompanyProfile": "View Company Profile",
+    "viewFullRankings": "View Full Rankings",
+    "wantToSeeMore": "Want to see the complete rankings?",
+    "chartTitle": "Brand Visit Trend",
+    "visitors": "Visitor Count",
+    "complaintCount": "Complaint Count",
+    "last7DaysComplaints": "Last 7 Days Complaints"
   }
 }

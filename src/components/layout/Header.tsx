@@ -94,7 +94,7 @@ export function Header() {
                 {t.nav.complaints}
               </Link>
               <Link
-                href="/trend"
+                href="/trend-100"
                 className="flex items-center text-foreground/60 transition-colors hover:text-foreground"
               >
                 {t.nav.trend}
@@ -229,7 +229,7 @@ export function Header() {
                 {t.nav.complaints}
               </Link>
               <Link
-                href="/trend"
+                href="/trend-100"
                 className="px-4 py-2 text-foreground/80 hover:text-primary hover:bg-primary/10 rounded-lg font-medium transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
